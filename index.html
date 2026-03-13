@@ -267,13 +267,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: none;
+            display: block; /* Изменено с none на block */
         }
 
         .photo-placeholder {
             width: 100%;
             height: 100%;
-            display: flex;
+            display: none; /* Скрыто, так как фото уже загружено */
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -549,12 +549,13 @@
             <!-- ФОТО -->
             <div class="photo-section">
                 <div class="photo-frame" id="photoFrame" onclick="handlePhotoClick()">
-                    <img id="animal-photo" src="" alt="Фото Уршуллы">
+                    <!-- Фотография Уршуллы вставлена здесь -->
+                    <img id="animal-photo" src="https://i.imgur.com/5d1e9576.jpg" alt="Фото Уршуллы">
                     <div class="photo-placeholder" id="photo-placeholder">
                         🐾
                         <span>Уршулла</span>
                     </div>
-                    <div class="photo-hint" id="photoHint">📸 Нажмите для загрузки фото</div>
+                    <div class="photo-hint" id="photoHint">📸 Нажмите для замены фото</div>
                 </div>
                 <input type="file" id="file-input" accept="image/*" onchange="loadPhoto(event)">
                 
@@ -741,7 +742,7 @@
             document.getElementById('modeText').innerHTML = 'Редактирование';
             document.getElementById('editBtn').disabled = true;
             document.getElementById('saveBtn').disabled = false;
-            document.getElementById('photoHint').innerHTML = '📸 Нажмите для загрузки фото';
+            document.getElementById('photoHint').innerHTML = '📸 Нажмите для замены фото';
         }
 
         function disableEditMode() {
